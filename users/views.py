@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from .models import CustomUser
 from django.contrib import messages
 def signup(request):
-    if request.metho == 'POST':
+    if request.method == 'POST':
         form=SignUpForm(request.POST)
         if form.is_valid():
             email=form.cleaned_data.get('email')
@@ -15,4 +15,13 @@ def signup(request):
                 activeEmail(request, user, email)
                 messages.success(request, f"New account created: Please check your email to activate your account")
                 return redirect('/')
+            
+        else:
+            for error in list(form.errors.values()):
+                messages.error(request, error)
+
+    
+    else:
+        form=SignUpForm()
+    return render(request, 'users/register.html', {'form':form})
             
