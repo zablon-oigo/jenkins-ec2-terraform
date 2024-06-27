@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import CustomUser
-from django.contrib import messages
+from django.contrib import messages,auth
 from .forms import SignUpForm
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
@@ -12,6 +12,26 @@ from django.contrib.auth.tokens import default_token_generator
 from django.contrib.auth.views import PasswordResetView,PasswordResetConfirmView
 from django.core.mail import send_mail
 from .tokens import account_activation_token
+from django.contrib.auth import get_user_model
+User=get_user_model()
+
+def activate(request, uidb64, token):
+    User=auth.get_user_model()
+    try:
+        uid=force_str(urlsafe_base64_decode(uidb64))
+        user=User.objects.get(pk=uid)
+    
+    except:
+        user=None
+    
+    if user is not None and account_activation_token.check_token(user, token):
+        user.is_active=True
+        user.save()
+        messages.success(
+            request,
+            'Activation Link is Invalid!'
+        )
+
 
 def activeEmail(request, user, to_email):
     context={
