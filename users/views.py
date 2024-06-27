@@ -22,6 +22,26 @@ def activeEmail(request, user, to_email):
         'protocol':'https' if request.is_secure() else 'http'
     }
     email_content=render_to_string('users/acct_active_email.html', + context)
+    email_subject='Activate your account.'
+    recipient_list=[to_email]
+    from_email=''
+    success=send_mail(
+        email_subject,
+        '',
+        from_email,
+        recipient_list,
+        html_message=email_content,
+        fail_silently=False
+
+    )
+    if success > 0:
+        messages.success(
+            request,
+            f"Dear {user}, Please go to your email '{to_email}' inbox and click on"
+            f"check your activation to confirm and complete the registration"
+        )
+    else:
+        messages.error(request, f"There was a problem sending email to {to_email}, please make sure your email was spelt correctly.")
 
 def signup(request):
     if request.method == 'POST':
