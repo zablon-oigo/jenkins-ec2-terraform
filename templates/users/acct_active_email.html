@@ -20,7 +20,12 @@
         <a href="http://{{domain}}{% url 'activate' uidb64=uid token=token %}" class="">
             Email Confirmation
         </a>
-        {% endautoescape%}
+        {% endautoescape %}
+        <p>
+            If you don't see the link, copy it from below:
+        </p>
+        <br>
+        http://{{domain}}{% url 'activate' uidb64=uid token=token %}
     </div>
 </body>
 </html>
