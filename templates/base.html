@@ -6,6 +6,15 @@
     <title>{%block title %}{% endblock %}| Home</title>
 </head>
 <body>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="">
+        <p class="">
+            {{message}}
+        </p>
+    </div>
+    {% endfor %}
+    {% endif %}
     {% block content %}
     {% endblock %}
 </body>
