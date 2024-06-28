@@ -93,3 +93,20 @@ def signup(request):
         form=SignUpForm()
     return render(request, 'users/register.html', {'form':form})
             
+def send_custom_password_reset_email(user, uid, token, protocol,domain):
+    subject='Password Reset'
+    from_email=''
+    to_email=user.email
+
+    context={
+        'name':user,
+        'uid':uid,
+        'token':token,
+        'protocol':protocol,
+        'domain':domain
+    }
+    html_content=render_to_string('users/password_reset_email.html',context)
+
+    msg=send_mail(
+        subject,html_content,from_email,[to_email]
+    )
