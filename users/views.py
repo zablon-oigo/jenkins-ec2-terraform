@@ -47,7 +47,7 @@ def activeEmail(request, user, to_email):
         'token':account_activation_token.make_token(user),
         'protocol':'https' if request.is_secure() else 'http'
     }
-    email_content=render_to_string('users/acct_active_email.html', + context)
+    email_content=render_to_string('users/acct_active_email.html',context)
     email_subject='Activate your account.'
     recipient_list=[to_email]
     from_email=''
