@@ -123,3 +123,13 @@ class CustomPasswordResetView(PasswordResetView):
             protocol='https' if  self.request.is_secure() else  'http'
             send_custom_password_reset_email(user,uidb64,token , protocol,domain=self.request.get_host())
             return response
+        
+
+class CustomPasswordResetConfirmView(PasswordResetConfirmView):
+    template_name='users/password_reset_confirm.html'
+
+    def get_context_data(self, **kwargs):
+       context=super().get_context_data(**kwargs)
+       context['uidb64']=self.kwargs['uidb64']
+       context['token']=self.kwargs['token']
+       return context
