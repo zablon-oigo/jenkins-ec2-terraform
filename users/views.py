@@ -109,3 +109,17 @@ def send_custom_password_reset_email(user, uid, token, protocol,domain):
     msg=send_mail(
         subject,'',email_content,from_email,[to_email]
     )
+class CustomPasswordResetView(PasswordResetView):
+    template_name='users/password_reset_form.html'
+    email_template_name='users/password/reset_email.html'
+    
+    def form_valid(self, form):
+        response=super().form_valid(form)
+        users=list(form.get_users(form.cleaned_data['email']))
+        user=users[0]  if users else None
+        if  user:
+            uidb64=urlsafe_base64_encode(force_bytes(user.pk))
+            token=default_token_generator.make_token(user)
+            protocol='https' if  self.request.is_secure() else  'http'
+            send_custom_password_reset_email(user,uidb64,token , protocol,domain=self.request.get_host())
+            return response
