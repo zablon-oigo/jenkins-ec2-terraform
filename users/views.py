@@ -133,3 +133,8 @@ class CustomPasswordResetConfirmView(PasswordResetConfirmView):
        context['uidb64']=self.kwargs['uidb64']
        context['token']=self.kwargs['token']
        return context
+    
+    def form_valid(self,form):
+        form.save()
+        messages.success(self.request, 'Your password has been reset successfully.')
+        return super().form_valid(form)
