@@ -10,7 +10,7 @@ from django.utils.http import urlsafe_base64_encode,urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.auth.views import PasswordResetView,PasswordResetConfirmView
-from django.core.mail import send_mail
+from django.core.mail import send_mail,EmailMessage
 from .tokens import account_activation_token
 from django.contrib.auth import get_user_model
 User=get_user_model()
@@ -93,13 +93,13 @@ def signup(request):
         form=SignUpForm()
     return render(request, 'users/register.html', {'form':form})
             
-def send_custom_password_reset_email(user, uid, token, protocol,domain):
+def send_custom_password_reset_email(request,user):
     context={
         'name':user,
-        'uid':uid,
-        'token':token,
-        'protocol':protocol,
-        'domain':domain
+        'uid':urlsafe_base64_encode(force_bytes(user.pk)),
+        'token':default_token_generator.make_token(user),
+        'protocol':'https' if  request.is_secure() else 'http',
+        'domain':get_current_site(request).domain
     }
     subject='Password Reset'
     from_email=''
