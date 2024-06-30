@@ -12,7 +12,7 @@ from django.contrib.auth.tokens import default_token_generator
 from django.contrib.auth.views import PasswordResetView,PasswordResetConfirmView
 from django.core.mail import send_mail,EmailMessage
 from .tokens import account_activation_token
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model,authenticate,login,logout
 User=get_user_model()
 
 def activate(request, uidb64, token):
@@ -140,3 +140,15 @@ class CustomPasswordResetConfirmView(PasswordResetConfirmView):
         form.save()
         messages.success(self.request, 'Your password has been reset successfully.')
         return super().form_valid(form)
+    
+def custom_login(request):
+    if request.method == "POST":
+        form=LoginForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            user = authenticate(request,email=email,password=password)
+            if user:
+                login(request, user)
+                messages.success(request,'login was successfully')
+                return redirect('index')
