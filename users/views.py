@@ -103,12 +103,13 @@ def send_custom_password_reset_email(request,user):
     }
     subject='Password Reset'
     from_email=''
-    recipient_list=[user.email]
+    to_email=user.email
     email_content=render_to_string('users/password_reset_email.html',context)
 
     msg=EmailMessage(
-        subject,email_content,from_email,recipient_list
+        subject,email_content,from_email,to_email
     )
+    msg.send()
 class CustomPasswordResetView(PasswordResetView):
     template_name='users/password_reset_form.html'
     email_template_name='users/password/reset_email.html'
