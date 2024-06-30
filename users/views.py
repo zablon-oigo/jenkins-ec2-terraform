@@ -109,6 +109,7 @@ def send_custom_password_reset_email(request,user):
     msg=EmailMessage(
         subject,email_content,from_email,to_email
     )
+    msg.content_subtype='html'
     msg.send()
 class CustomPasswordResetView(PasswordResetView):
     template_name='users/password_reset_form.html'
