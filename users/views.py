@@ -152,3 +152,8 @@ def custom_login(request):
                 login(request, user)
                 messages.success(request,'login was successfully')
                 return redirect('index')
+
+def custom_logout(request):
+    logout(request)
+    messages.success(request,f'You have been logged out.')
+    return redirect('login')  
