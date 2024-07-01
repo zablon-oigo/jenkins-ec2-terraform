@@ -1,1 +1,1 @@
-# aws-sns
+# aws-sns project
