@@ -14,7 +14,7 @@ from django.core.mail import send_mail,EmailMessage
 from .tokens import account_activation_token
 from django.contrib.auth import get_user_model,authenticate,login,logout
 User=get_user_model()
-
+from django.http import HttpResponse
 def activate(request, uidb64, token):
     User=auth.get_user_model()
     try:
@@ -157,3 +157,7 @@ def custom_logout(request):
     logout(request)
     messages.success(request,f'You have been logged out.')
     return redirect('login')  
+
+
+def index(request):
+    return HttpResponse("Hello World!")
