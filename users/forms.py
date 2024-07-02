@@ -30,5 +30,11 @@ class SignUpForm(UserCreationForm):
 
 
 class LoginForm(forms.Form):
-    email = forms.EmailField()
-    password = forms.CharField(max_length=65, widget=forms.PasswordInput)
+    email=forms.CharField(widget=forms.EmailInput(attrs={
+            'placeholder':'Enter your email',
+            'class':'px-6 py-4 w-full rounded-xl mb-2'
+        }))
+    password=forms.CharField(widget=forms.PasswordInput(attrs={
+            'placeholder':'Enter your password',
+            'class':'w-full px-6 py-4 rounded-xl mb-2',
+        }))
