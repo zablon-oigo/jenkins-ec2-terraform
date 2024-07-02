@@ -152,6 +152,9 @@ def custom_login(request):
                 login(request, user)
                 messages.success(request,'login was successfully')
                 return redirect('index')
+    else:
+        form=LoginForm()
+    return render(request,"users/login.html",{'form':form})
 
 def custom_logout(request):
     logout(request)
