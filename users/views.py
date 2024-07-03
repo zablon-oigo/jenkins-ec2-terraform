@@ -113,7 +113,7 @@ def send_custom_password_reset_email(request,user):
     msg.send()
 class CustomPasswordResetView(PasswordResetView):
     template_name='users/password_reset_form.html'
-    email_template_name='users/password/reset_email.html'
+    email_template_name='users/password_reset_email.html'
     
     def form_valid(self, form):
         response=super().form_valid(form)
