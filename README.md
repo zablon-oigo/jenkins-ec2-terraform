@@ -36,5 +36,5 @@ Start the server
 To run tests, run the following command
 
 ```bash
-  npm run test
+  py manage.py test
 ```
