@@ -31,3 +31,10 @@ Start the server
 ```bash
   py manage.py runserver
 ```
+## Running Tests
+
+To run tests, run the following command
+
+```bash
+  npm run test
+```
