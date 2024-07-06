@@ -39,4 +39,4 @@ To run tests, run the following command
   py manage.py test
 ```
 ## Demo
-
+## Screenshots
