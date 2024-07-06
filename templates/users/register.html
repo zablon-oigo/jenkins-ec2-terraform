@@ -17,7 +17,17 @@
                       <label for="" class="font-semibold text-xl">Repeat Password</label>
                       {{form.password2}}
                   </div>
-                  
+                  <div class="">
+                        {% if form.errors or form.non_field_errors %}
+                        <div id="alert" class=" m-2 bg-red-500 rounded-xl p-4 text-base">
+                            {% for field in form %}
+                            {{field.errors}}
+                            {% endfor %}
+                            {{form.non_field_errors}}
+                        </div>
+                        {% endif %}
+                           
+                    </div>
                   <input type="submit" value="Register" class="px-6 py-3 rounded-lg text-white text-lg bg-teal-700 w-full">
             </form>
       </div>
