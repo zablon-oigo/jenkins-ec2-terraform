@@ -4,8 +4,20 @@
 <section class="bg-gray-100  max-w-4xl mx-auto ">
       <div class="shadow-2xl bg-white rounded-xl p-6">
             <form action="{% url 'signup' %}" method="post" class="">
-                  {% csrf_token %}
-                  {{form.as_p}}
+                  {{form.non_field_errors}}
+                  <div class="">
+                      <label for="" class="font-semibold text-xl">Email</label>
+                      {{form.email}}
+                  </div>
+                  <div class="">
+                      <label for="" class="font-semibold text-xl">Password</label>
+                      {{form.password1}}
+                  </div>
+                  <div class="">
+                      <label for="" class="font-semibold text-xl">Repeat Password</label>
+                      {{form.password2}}
+                  </div>
+                  
                   <input type="submit" value="Register" class="px-6 py-3 rounded-lg text-white text-lg bg-teal-700 w-full">
             </form>
       </div>
