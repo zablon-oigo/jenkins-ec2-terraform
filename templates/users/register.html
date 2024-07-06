@@ -1,9 +1,13 @@
 {% extends  'base.html' %}
 
 {% block content %}
-<form action="{% url 'signup' %}" method="post" class="">
-      {% csrf_token %}
-      {{form.as_p}}
-      <input type="submit" value="Register" class="">
-</form>
+<section class="bg-gray-100  max-w-4xl mx-auto ">
+      <div class="shadow-2xl bg-white rounded-xl p-6">
+            <form action="{% url 'signup' %}" method="post" class="">
+                  {% csrf_token %}
+                  {{form.as_p}}
+                  <input type="submit" value="Register" class="">
+            </form>
+      </div>
+</section>
 {% endblock %}
