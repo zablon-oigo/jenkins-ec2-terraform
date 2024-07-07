@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 
 {% block  content %}
-<form action="{% url 'login' %}" method="post" class="">
-    {% csrf_token %}
-    {{form.as_p }}
-    <input type="submit" value="Log in">
-</form>
+<section class="bg-gray-100">
+    <div class="">
+        <form action="{% url 'login' %}" method="post" class="">
+            {% csrf_token %}
+                 {% for field in form %}
+                 <label for="" class="font-semibold text-xl">{{field.label}}</label>
+                 {{field}}
+                 {% endfor%}
+                 <input type="submit" value="Log in" class="bg-teal-500 py-4 px-6 w-full mx-auto hover:bg-teal-700 rounded-xl font-semibold text-white">
+        </form>
+    </div>
+</section>
 {% endblock %}
