@@ -5,6 +5,9 @@ Login
 {% block  content %}
 <section class="bg-gray-100 max-w-4xl mx-auto p-10">
     <div class="bg-white shadow-2xl max-w-md mx-auto p-10 my-60 rounded-lg">
+        <h2 class="first-letter:capitalize text-3xl mb-3 font-semibold text-center">
+            login
+        </h2>
         <form action="{% url 'login' %}" method="post" class="">
             {% csrf_token %}
                  {% for field in form %}
