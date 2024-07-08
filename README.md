@@ -40,3 +40,4 @@ To run tests, run the following command
 ```
 ## Demo
 ## Screenshots
+##  How to Set up your SES account
