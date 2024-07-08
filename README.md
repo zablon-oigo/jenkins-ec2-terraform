@@ -41,3 +41,4 @@ To run tests, run the following command
 ## Demo
 ## Screenshots
 ##  How to Set up your SES account
+Sign in to the AWS Management Console and open the Amazon SES console
