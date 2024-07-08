@@ -41,5 +41,5 @@ To run tests, run the following command
 ## Demo
 ## Screenshots
 ##  How to Set up your SES account
-Sign in to the AWS Management Console and open the Amazon SES console
-Select Get started from the SES console home page and the wizard will walk you through the steps of setting up your SES account.
+- Sign in to the AWS Management Console and open the Amazon SES console
+- Select Get started from the SES console home page and the wizard will walk you through the steps of setting up your SES account.
