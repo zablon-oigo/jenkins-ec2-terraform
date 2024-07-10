@@ -12,3 +12,4 @@ COPY ./entrypoint.sh .
 RUN sed -i 's/\r$//g' /sns/entrypoint.sh
 RUN chmod +x /sns/entrypoint.sh
 COPY . .
+ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
