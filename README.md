@@ -45,3 +45,4 @@ To run tests, run the following command
 - Select Get Started from the SES console home page and the wizard will walk you through the steps of setting up your SES account.
   
 *The SES account setup wizard will only be presented if you have not yet created any identities (email address or domain) in SES.*
+## Feedback
