@@ -46,3 +46,4 @@ To run tests, run the following command
   
 *The SES account setup wizard will only be presented if you have not yet created any identities (email address or domain) in SES.*
 ## Feedback
+If you have any feedback, please shoot a DM me directly via Linkedin
