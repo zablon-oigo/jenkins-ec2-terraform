@@ -31,6 +31,8 @@ Start the server
 ```bash
   py manage.py runserver
 ```
+## Setting up docker-compose
+
 ## Running Tests
 
 To run tests, run the following command
