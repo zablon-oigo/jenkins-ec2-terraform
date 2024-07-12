@@ -34,6 +34,9 @@ Start the server
 ## Setting up docker-compose
 Using a virtual environment, even when using Docker, is useful so you have easy access to your dependencies and are still isolated from other projects.
 Assuming you have Docker and docker-compose installed, activate your virtual environment and run
+```
+docker-compose up
+```
 
 ## Running Tests
 
