@@ -32,6 +32,7 @@ Start the server
   py manage.py runserver
 ```
 ## Setting up docker-compose
+Using a virtual environment, even when using Docker, is useful so you have easy access to your dependecies and are still isolated from other projects.
 
 ## Running Tests
 
