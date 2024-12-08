@@ -1,2 +1,18 @@
-
+.venv*/
+db.sqlite3
+__pycache__*/
+env
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+.terraform.tfstate.lock.info
+override.tf
+.pem
+override.tf.json
+*_override.tf
+*_override.tf.json
+*.tfvars.json
+.terraform.lock.hcl
+terraform.tfvars
+.env
 
