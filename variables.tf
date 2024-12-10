@@ -5,3 +5,6 @@ variable "region" {
 variable "vpc_name" {
   default     = "test-vpc"
 }
+variable "igw_name" {
+  default     = "test-igw"
+}
