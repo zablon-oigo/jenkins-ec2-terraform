@@ -8,3 +8,6 @@ variable "vpc_name" {
 variable "igw_name" {
   default = "test-igw"
 }
+variable "iam_role_name" {
+  default     = "test-user-iam-role"
+}
