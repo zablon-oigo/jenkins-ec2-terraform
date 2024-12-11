@@ -42,3 +42,7 @@ resource "aws_iam_policy" "ecr_access_policy" {
     }
     EOF
 }
+resource "aws_iam_role_policy_attachment" "ecr_policy_attachment" {
+  policy_arn = aws_iam_policy.ecr_access_policy.arn
+  role       = aws_iam_role.iam-role.name
+}
