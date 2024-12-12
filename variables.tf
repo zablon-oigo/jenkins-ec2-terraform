@@ -11,3 +11,6 @@ variable "igw_name" {
 variable "iam_role_name" {
   default     = "test-user-iam-role"
 }
+variable "instance_name" {
+  default     = "test-server"
+}
