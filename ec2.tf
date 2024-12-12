@@ -9,4 +9,7 @@ resource "aws_instance" "ec2" {
     volume_size = 30
   }
   user_data = templatefile("./installation.sh", {})
+tags = {
+    Name        = var.instance_name
+  }
 }
