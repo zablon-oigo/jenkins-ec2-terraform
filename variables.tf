@@ -9,8 +9,8 @@ variable "igw_name" {
   default = "test-igw"
 }
 variable "iam_role_name" {
-  default     = "test-user-iam-role"
+  default = "test-user-iam-role"
 }
 variable "instance_name" {
-  default     = "test-server"
+  default = "test-server"
 }
