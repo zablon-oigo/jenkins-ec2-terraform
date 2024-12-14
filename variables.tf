@@ -17,3 +17,6 @@ variable "instance_name" {
 variable "route_table_name" {
   default     = "test-rt"
 }
+variable "security_group_name" {
+  default     = "test-sg"
+}
