@@ -14,3 +14,6 @@ variable "iam_role_name" {
 variable "instance_name" {
   default = "test-server"
 }
+variable "route_table_name" {
+  default     = "test-rt"
+}
