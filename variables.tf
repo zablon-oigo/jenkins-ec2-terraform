@@ -15,11 +15,11 @@ variable "instance_name" {
   default = "test-server"
 }
 variable "route_table_name" {
-  default     = "test-rt"
+  default = "test-rt"
 }
 variable "security_group_name" {
-  default     = "test-sg"
+  default = "test-sg"
 }
 variable "instance_type" {
-  default     = "t2.micro"
+  default = "t2.micro"
 }

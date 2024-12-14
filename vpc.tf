@@ -31,5 +31,5 @@ resource "aws_route_table_association" "rt-association" {
   subnet_id      = aws_subnet.public-subnet.id
 }
 variable "key_name" {
-  default     = "test-key"
+  default = "test-key"
 }
