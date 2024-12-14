@@ -20,3 +20,6 @@ variable "route_table_name" {
 variable "security_group_name" {
   default     = "test-sg"
 }
+variable "instance_type" {
+  default     = "t2.micro"
+}
